@@ -16,11 +16,12 @@ Facciamo attenzione all’organizzazione del codice, suddividendolo in appositi 
 <?php
 
 include_once './class/Movie.php';
+include_once './class/Genre.php';
 
-$movie1 = new Movie("Taxi Driver", "Thriller", "1976", 8, "Martin Scorsese");
+$movie1 = new Movie("Taxi Driver", new Genre("thriller"), "1976", 8, "Martin Scorsese");
 $movie1->setImg("https://i.pinimg.com/originals/ed/75/66/ed7566986f170e8cdec09fd2d189530c.jpg");
 
-$movie2 = new Movie("Il Padrino", "Dramatic", "1972", 9, "Francis Ford Coppola");
+$movie2 = new Movie("Il Padrino", new Genre("drama"), "1972", 9, "Francis Ford Coppola");
 $movie2->setImg("https://i.pinimg.com/originals/98/50/fd/9850fdd7bda6610b1abb50c91e5bab2b.jpg");
 
 
@@ -61,7 +62,12 @@ $movieList = [$movie1, $movie2];
           <tr>
             <td><img class="thumb" src="<?php echo $movies->getImg() ?>" alt="image"></td>
             <td><?php echo $movies->title ?></td>
-            <td><?php echo $movies->genre ?></td>
+            <td>
+              <?php echo $movies->genre?->drama ?? '' ?>
+              <?php echo $movies->genre?->thriller ?? '' ?>
+              <?php echo $movies->genre?->comedy ?? '' ?>
+              <?php echo $movies->genre?->documentary ?? '' ?>
+            </td>
             <td><?php echo $movies->year ?></td>
             <td><?php echo $movies->rating ?></td>
             <td><?php echo $movies->direction ?></td>

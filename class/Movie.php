@@ -17,7 +17,7 @@ class Movie
    * @param String $rating
    * @param String $direction
    */
-  public function __construct($_title, $_genre, $_year, $_rating, $_direction)
+  public function __construct($_title, Genre $_genre, $_year, $_rating, $_direction)
   {
     $this->title = $_title;
     $this->genre = $_genre;

@@ -13,12 +13,21 @@ Facciamo attenzione all’organizzazione del codice, suddividendolo in appositi 
 - mettendo ciascuna classe nel proprio file e magari raggruppare tutte le classi in una cartella dedicata che possiamo chiamare Models/
 - organizzando il layout dividendo la struttura ed i contenuti in file e parziali dedicati. -->
 
-<?php 
+<?php
 
-  include_once './class/Movie.php';
+include_once './class/Movie.php';
+
+$movie1 = new Movie("Taxi Driver", "Thriller", "1976", 8, "Martin Scorsese");
+$movie1->setImg("https://i.pinimg.com/originals/ed/75/66/ed7566986f170e8cdec09fd2d189530c.jpg");
+
+$movie2 = new Movie("Il Padrino", "Dramatic", "1972", 9, "Francis Ford Coppola");
+$movie2->setImg("https://i.pinimg.com/originals/98/50/fd/9850fdd7bda6610b1abb50c91e5bab2b.jpg");
+
+
+$movieList = [$movie1, $movie2];
+
 
 ?>
-
 
 
 
@@ -35,8 +44,30 @@ Facciamo attenzione all’organizzazione del codice, suddividendolo in appositi 
 </head>
 
 <body>
-
-
+  <div class="container w-75 m-auto text-center">
+    <table class="table table-striped w-75 m-auto my-5">
+      <thead>
+        <tr>
+          <th scope="col">Title</th>
+          <th scope="col">Genre</th>
+          <th scope="col">Year</th>
+          <th scope="col">Rating</th>
+          <th scope="col">Direction</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php foreach ($movieList as $movies) : ?>
+          <tr>
+            <td><?php echo $movies->title ?></td>
+            <td><?php echo $movies->genre ?></td>
+            <td><?php echo $movies->year ?></td>
+            <td><?php echo $movies->rating ?></td>
+            <td><?php echo $movies->direction ?></td>
+          </tr>
+        <?php endforeach; ?>
+      </tbody>
+    </table>
+  </div>
 </body>
 
 </html>

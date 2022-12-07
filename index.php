@@ -15,8 +15,8 @@ Facciamo attenzione all’organizzazione del codice, suddividendolo in appositi 
 
 <?php
 
-include_once './class/Movie.php';
-include_once './class/Genre.php';
+include_once './models/Movie.php';
+include_once './models/Genre.php';
 
 $movie1 = new Movie("Taxi Driver", new Genre("thriller"), "1976", 8, "Martin Scorsese");
 $movie1->setImg("https://i.pinimg.com/originals/ed/75/66/ed7566986f170e8cdec09fd2d189530c.jpg");
@@ -63,10 +63,16 @@ $movieList = [$movie1, $movie2];
             <td><img class="thumb" src="<?php echo $movies->getImg() ?>" alt="image"></td>
             <td><?php echo $movies->title ?></td>
             <td>
-              <?php echo $movies->genre?->drama ?? '' ?>
-              <?php echo $movies->genre?->thriller ?? '' ?>
+              <?php echo $movies->genre?->action ?? '' ?>
+              <?php echo $movies->genre?->adventure ?? '' ?>
+              <?php echo $movies->genre?->biography ?? '' ?>
               <?php echo $movies->genre?->comedy ?? '' ?>
+              <?php echo $movies->genre?->crime ?? '' ?>
               <?php echo $movies->genre?->documentary ?? '' ?>
+              <?php echo $movies->genre?->drama ?? '' ?>
+              <?php echo $movies->genre?->fantasy ?? '' ?>
+              <?php echo $movies->genre?->horror ?? '' ?>
+              <?php echo $movies->genre?->thriller ?? '' ?>
             </td>
             <td><?php echo $movies->year ?></td>
             <td><?php echo $movies->rating ?></td>

@@ -15,9 +15,7 @@ Facciamo attenzione all’organizzazione del codice, suddividendolo in appositi 
 
 <?php 
 
-
-echo 'Ciao';
-
+  include_once './class/Movie.php';
 
 ?>
 

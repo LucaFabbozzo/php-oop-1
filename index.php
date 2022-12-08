@@ -24,6 +24,10 @@ $movie1->setImg("https://i.pinimg.com/originals/ed/75/66/ed7566986f170e8cdec09fd
 $movie2 = new Movie("Il Padrino", new Genre("drama"), "1972", 9, "Francis Ford Coppola");
 $movie2->setImg("https://i.pinimg.com/originals/98/50/fd/9850fdd7bda6610b1abb50c91e5bab2b.jpg");
 
+//richiamo la mia proprieta statica
+// var_dump(Movie::$company);
+// var_dump(Movie::getCompany("Entra in "));
+
 
 $movieList = [$movie1, $movie2];
 
@@ -46,6 +50,7 @@ $movieList = [$movie1, $movie2];
 
 <body>
   <div class="container w-75 m-auto text-center">
+    <h1><?php echo Movie::$company ?></h1>
     <table class="table w-75 m-auto my-5">
       <thead>
         <tr>

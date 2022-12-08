@@ -9,6 +9,7 @@ class Movie
   public $year;
   public $rating;
   public $direction;
+  public static $company = "Fabbflix";
 
   /**
    * @param String $title
@@ -39,8 +40,11 @@ class Movie
 
     return $placeholder;
   }
-  
 
+  public static function getCompany($string) {
+    return $string . self::$company;
+  }
+  
 }
 
 

@@ -17,11 +17,12 @@ Facciamo attenzione all’organizzazione del codice, suddividendolo in appositi 
 
 include_once './models/Movie.php';
 include_once './models/Genre.php';
+include_once './models/OriginalLenguage.php';
 
-$movie1 = new Movie("Taxi Driver", new Genre("thriller"), "1976", 8, "Martin Scorsese");
+$movie1 = new Movie("Taxi Driver", new Genre("thriller"), new OriginalLenguage("English"), "1976", 8, "Martin Scorsese", "Robert De Niro, Jodie Foster");
 $movie1->setImg("https://i.pinimg.com/originals/ed/75/66/ed7566986f170e8cdec09fd2d189530c.jpg");
 
-$movie2 = new Movie("Il Padrino", new Genre("drama"), "1972", 9, "Francis Ford Coppola");
+$movie2 = new Movie("Il Padrino", new Genre("drama"), new OriginalLenguage("English", "Italian"), "1972", 9, "Francis Ford Coppola", "Al Pacino, Marlon Brando");
 $movie2->setImg("https://i.pinimg.com/originals/98/50/fd/9850fdd7bda6610b1abb50c91e5bab2b.jpg");
 
 //richiamo la mia proprieta statica
@@ -51,15 +52,17 @@ $movieList = [$movie1, $movie2];
 <body>
   <div class="container w-75 m-auto text-center">
     <h1><?php echo Movie::$company ?></h1>
-    <table class="table w-75 m-auto my-5">
+    <table class="table w-75 m-auto my-5 text-light">
       <thead>
-        <tr>
+        <tr class="text-uppercase">
           <th scope="col"></th>
           <th scope="col">Title</th>
           <th scope="col">Genre</th>
+          <th scope="col">Original lenguage</th>
           <th scope="col">Year</th>
           <th scope="col">Rating</th>
           <th scope="col">Direction</th>
+          <th scope="col">Actors</th>
         </tr>
       </thead>
       <tbody>
@@ -67,6 +70,12 @@ $movieList = [$movie1, $movie2];
           <tr>
             <td><img class="thumb" src="<?php echo $movies->getImg() ?>" alt="image"></td>
             <td><?php echo $movies->title ?></td>
+            <td>
+              <?php echo $movies->originalLenguage?->english ?? '' ?>
+              <?php echo $movies->originalLenguage?->italian ?? '' ?>
+              <?php echo $movies->originalLenguage?->french ?? '' ?>
+              <?php echo $movies->originalLenguage?->spanish ?? '' ?>
+            </td>
             <td>
               <?php echo $movies->genre?->action ?? '' ?>
               <?php echo $movies->genre?->adventure ?? '' ?>
@@ -82,6 +91,7 @@ $movieList = [$movie1, $movie2];
             <td><?php echo $movies->year ?></td>
             <td><?php echo $movies->rating ?></td>
             <td><?php echo $movies->direction ?></td>
+            <td><?php echo $movies->actors ?></td>
           </tr>
         <?php endforeach; ?>
       </tbody>

@@ -25,12 +25,14 @@ $movie1->setImg("https://i.pinimg.com/originals/ed/75/66/ed7566986f170e8cdec09fd
 $movie2 = new Movie("Il Padrino", new Genre("drama"), new OriginalLenguage("English", "Italian"), "1972", 9, "Francis Ford Coppola", "Al Pacino, Marlon Brando");
 $movie2->setImg("https://i.pinimg.com/originals/98/50/fd/9850fdd7bda6610b1abb50c91e5bab2b.jpg");
 
+$movie3 = new Movie("Into the Wild", new Genre("biography"), new OriginalLenguage("English"), "2007", 8.5, "Sean Penn", "Vince Vaughn, Emile Hirsch");
+$movie3->setImg("https://m.media-amazon.com/images/M/MV5BNjQ0ODlhMWUtNmUwMS00YjExLWI4MjQtNjVmMmE2Y2E0MGRmXkEyXkFqcGdeQXVyNDk3NzU2MTQ@._V1_FMjpg_UX1000_.jpg");
 //richiamo la mia proprieta statica
 // var_dump(Movie::$company);
 // var_dump(Movie::getCompany("Entra in "));
 
 
-$movieList = [$movie1, $movie2];
+$movieList = [$movie1, $movie2, $movie3];
 
 
 ?>
